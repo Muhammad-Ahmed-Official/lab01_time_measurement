@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 01 – HCI Keyboard Response (Reaction Time)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="window">
+    <header class="header">
+      <h1 class="title">Keyboard response</h1>
+      <p class="instruction">Press <strong>A</strong> for letter, <strong>L</strong> for number. <strong>Space</strong> to start over.</p>
+    </header>
+
+    <section class="settings" aria-label="Session limits">
+      <h2 class="settings-title">Limits</h2>
+      <p class="settings-hint">Default: 10 trials, 3 mistakes. Set 0 for no limit.</p>
+      <div class="settings-row">
+        <label for="input-max-trials">Max trials</label>
+        <input type="number" id="input-max-trials" min="0" value="10" placeholder="0 = unlimited" aria-label="Maximum number of trials">
+        <label for="input-max-mistakes">Max mistakes</label>
+        <input type="number" id="input-max-mistakes" min="0" value="3" placeholder="0 = unlimited" aria-label="Maximum mistakes before session ends">
+      </div>
+    </section>
+
+    <div class="stimulus-wrapper">
+      <span id="stimulus" aria-live="polite">—</span>
+    </div>
+    <div id="summary" class="summary hidden" aria-live="polite"></div>
+
+    <div class="stats" id="stats" aria-live="polite">
+      <span>Trials: <strong id="stat-trials">0</strong><span id="stat-trials-limit"></span></span>
+      <span>Correct: <strong id="stat-correct">0</strong></span>
+      <span>Mistakes: <strong id="stat-mistakes">0</strong><span id="stat-mistakes-limit"></span></span>
+      <span>Accuracy: <strong id="stat-accuracy">—</strong>%</span>
+      <span>Avg RT: <strong id="stat-avgRT">—</strong> ms</span>
+    </div>
+    <div class="progress-wrap hidden" id="progress-wrap">
+      <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="btn-letter" aria-label="Letter (press A)">Letter (A)</button>
+      <button type="button" id="btn-reset" aria-label="Start over (press Space)">start over (Space)</button>
+      <button type="button" id="btn-number" aria-label="Number (press L)">Number (L)</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
